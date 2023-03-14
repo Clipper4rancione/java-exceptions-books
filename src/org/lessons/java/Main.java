@@ -23,7 +23,7 @@ public class Main {
             try {
                 Book book = new Book(title, pages, author, publisher);
                 bookList[i] = book;
-                System.out.println("Il tuo libro" + book.getTitle() + "è stato correttamente aggiunto al catalogo");
+                System.out.println("Il tuo libro " + book.getTitle() + " è stato correttamente aggiunto al catalogo");
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
             }
