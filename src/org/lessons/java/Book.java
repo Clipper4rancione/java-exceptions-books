@@ -8,7 +8,10 @@ public class Book {
 
     // CONSTRUCTOR
     public Book(String title, int pages, String author, String publisher) {
-        checkException();
+        checkExceptionString(title, "titolo");
+        checkExceptionInt(pages, "pagine");
+        checkExceptionString(author, "autore");
+        checkExceptionString(publisher, "editore");
         this.title = title;
         this.pages = pages;
         this.author = author;
@@ -22,7 +25,7 @@ public class Book {
     }
 
     public void setTitle(String title) {
-        checkException();
+        checkExceptionString(title, "titolo");
         this.title = title;
     }
 
@@ -31,7 +34,7 @@ public class Book {
     }
 
     public void setPages(int pages) {
-        checkException();
+        checkExceptionInt(pages, "pagine");
         this.pages = pages;
     }
 
@@ -40,7 +43,7 @@ public class Book {
     }
 
     public void setAuthor(String author) {
-        checkException();
+        checkExceptionString(author, "autore");
         this.author = author;
     }
 
@@ -49,24 +52,20 @@ public class Book {
     }
 
     public void setPublisher(String publisher) {
-        checkException();
+        checkExceptionString(publisher, "editore");
         this.publisher = publisher;
     }
 
     // METHODS
 
-    private void checkException() throws IllegalArgumentException{
-        if (title == null){
-            throw new IllegalArgumentException("Il campo titolo non può essere vuoto");
+    private void checkExceptionString(String str, String name) throws IllegalArgumentException{
+        if ( str.length() == 1){
+            throw new IllegalArgumentException("Il campo" + name + "deve contenere almeno 1 carattere");
         }
-        if (pages <= 0){
-            throw new IllegalArgumentException("Il numero di pagine deve essere superiore a 0");
-        }
-        if (author == null){
-            throw new IllegalArgumentException("Il campo autore non può essere vuoto");
-        }
-        if (publisher == null){
-            throw new IllegalArgumentException("Il campo dell'editore non può essere vuoto");
+    }
+    private void checkExceptionInt(int n, String name) throws IllegalArgumentException{
+        if (n <= 0){
+            throw new IllegalArgumentException("Il campo" + name + "deve contenere almeno 1 numero");
         }
     }
 
