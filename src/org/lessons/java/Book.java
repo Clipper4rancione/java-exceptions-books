@@ -8,6 +8,7 @@ public class Book {
 
     // CONSTRUCTOR
     public Book(String title, int pages, String author, String publisher) {
+        checkException();
         this.title = title;
         this.pages = pages;
         this.author = author;
@@ -46,5 +47,22 @@ public class Book {
 
     public void setPublisher(String publisher) {
         this.publisher = publisher;
+    }
+
+    // METHODS
+
+    public void checkException(){
+        if (title == null){
+            throw new IllegalArgumentException("Il campo titolo non può essere vuoto");
+        }
+        if (pages <= 0){
+            throw new IllegalArgumentException("Il numero di pagine deve essere superiore a 0");
+        }
+        if (author == null){
+            throw new IllegalArgumentException("Il campo autore non può essere vuoto");
+        }
+        if (publisher == null){
+            throw new IllegalArgumentException("Il campo dell'editore non può essere vuoto");
+        }
     }
 }
