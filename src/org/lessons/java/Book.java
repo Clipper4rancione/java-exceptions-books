@@ -55,7 +55,7 @@ public class Book {
 
     // METHODS
 
-    public void checkException(){
+    private void checkException() throws IllegalArgumentException{
         if (title == null){
             throw new IllegalArgumentException("Il campo titolo non può essere vuoto");
         }
@@ -68,5 +68,15 @@ public class Book {
         if (publisher == null){
             throw new IllegalArgumentException("Il campo dell'editore non può essere vuoto");
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "title='" + title + '\'' +
+                ", pages=" + pages +
+                ", author='" + author + '\'' +
+                ", publisher='" + publisher + '\'' +
+                '}';
     }
 }
