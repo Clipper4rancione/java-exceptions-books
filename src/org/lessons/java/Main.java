@@ -20,10 +20,13 @@ public class Main {
             System.out.print("Inserisci l'editore del libro: ");
             String publisher = scanner.nextLine();
 
-            Book book = new Book(title, pages, author, publisher);
-
-            bookList[i] = book;
-            System.out.println(bookList[i]);
+            try {
+                Book book = new Book(title, pages, author, publisher);
+                bookList[i] = book;
+                System.out.println("Il tuo libro" + book.getTitle() + "è stato correttamente aggiunto al catalogo");
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
         }
 
     }
