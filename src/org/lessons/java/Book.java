@@ -22,6 +22,7 @@ public class Book {
     }
 
     public void setTitle(String title) {
+        checkException();
         this.title = title;
     }
 
@@ -30,6 +31,7 @@ public class Book {
     }
 
     public void setPages(int pages) {
+        checkException();
         this.pages = pages;
     }
 
@@ -38,6 +40,7 @@ public class Book {
     }
 
     public void setAuthor(String author) {
+        checkException();
         this.author = author;
     }
 
@@ -46,6 +49,7 @@ public class Book {
     }
 
     public void setPublisher(String publisher) {
+        checkException();
         this.publisher = publisher;
     }
 
