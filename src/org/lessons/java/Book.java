@@ -7,7 +7,7 @@ public class Book {
     private String publisher;
 
     // CONSTRUCTOR
-    public Book(String title, int pages, String author, String publisher) {
+    public Book(String title, int pages, String author, String publisher) throws IllegalArgumentException{
         String exceptionMessage = "";
         if (checkExceptionString(title)){
             exceptionMessage += "Il titolo non può essere vuoto";
@@ -37,7 +37,7 @@ public class Book {
         return title;
     }
 
-    public void setTitle(String title) {
+    public void setTitle(String title) throws IllegalArgumentException{
         if (checkExceptionString(title)){
             throw new IllegalArgumentException("Il titolo non può essere vuoto");
         }
@@ -48,7 +48,7 @@ public class Book {
         return pages;
     }
 
-    public void setPages(int pages) {
+    public void setPages(int pages) throws IllegalArgumentException{
         if (pages <= 0){
             throw new IllegalArgumentException("le pagine devono essere superiori a 0");
         }
@@ -59,7 +59,7 @@ public class Book {
         return author;
     }
 
-    public void setAuthor(String author) {
+    public void setAuthor(String author) throws IllegalArgumentException{
         if (checkExceptionString(author)){
             throw new IllegalArgumentException("L'autore non può essere vuoto");
         }
@@ -70,7 +70,7 @@ public class Book {
         return publisher;
     }
 
-    public void setPublisher(String publisher) {
+    public void setPublisher(String publisher) throws IllegalArgumentException{
         if (checkExceptionString(publisher)){
             throw new IllegalArgumentException("L'editore non può essere vuoto");
         }

@@ -1,1 +1,1 @@
-Book{title='Percy Jackson', pages=500, author='boh', publisher='boh'}/nBook{title='Harry Potter', pages=800, author='JK. rowling', publisher='boh'}/n
+Book{title='Percy Jackson', pages=500, author='boh', publisher='boh'}/nBook{title='Harry Potter', pages=800, author='JK. rowling', publisher='boh'}/nBook{title='', pages=23, author='ww', publisher='ww'}/nBook{title='', pages=23, author='fff', publisher='fff'}/nBook{title='', pages=23, author='wewe', publisher='we'}/nBook{title='eee', pages=87, author='cior', publisher='cioi'}/n
