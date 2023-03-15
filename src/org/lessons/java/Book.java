@@ -8,10 +8,23 @@ public class Book {
 
     // CONSTRUCTOR
     public Book(String title, int pages, String author, String publisher) {
-        checkExceptionString(title, "titolo");
-        checkExceptionInt(pages, "pagine");
-        checkExceptionString(author, "autore");
-        checkExceptionString(publisher, "editore");
+        String exceptionMessage = "";
+        if (checkExceptionString(title)){
+            exceptionMessage += "Il titolo non può essere vuoto";
+        }
+        if (checkExceptionString(author)){
+            exceptionMessage += "L'autore non può essere vuoto";
+        }
+        if (checkExceptionString(publisher)){
+            exceptionMessage += "l'editore non può essere vuoto";
+        }
+        if (pages <= 0){
+            exceptionMessage += "le pagine devono essere superiori a 0";
+        }
+        if (exceptionMessage.length() > 0){
+            exceptionMessage = exceptionMessage.substring(0, exceptionMessage.length() - 1);
+            throw new IllegalArgumentException(exceptionMessage);
+        }
         this.title = title;
         this.pages = pages;
         this.author = author;
@@ -25,7 +38,9 @@ public class Book {
     }
 
     public void setTitle(String title) {
-        checkExceptionString(title, "titolo");
+        if (checkExceptionString(title)){
+            throw new IllegalArgumentException("Il titolo non può essere vuoto");
+        }
         this.title = title;
     }
 
@@ -34,7 +49,9 @@ public class Book {
     }
 
     public void setPages(int pages) {
-        checkExceptionInt(pages, "pagine");
+        if (pages <= 0){
+            throw new IllegalArgumentException("le pagine devono essere superiori a 0");
+        }
         this.pages = pages;
     }
 
@@ -43,7 +60,9 @@ public class Book {
     }
 
     public void setAuthor(String author) {
-        checkExceptionString(author, "autore");
+        if (checkExceptionString(author)){
+            throw new IllegalArgumentException("L'autore non può essere vuoto");
+        }
         this.author = author;
     }
 
@@ -52,22 +71,22 @@ public class Book {
     }
 
     public void setPublisher(String publisher) {
-        checkExceptionString(publisher, "editore");
+        if (checkExceptionString(publisher)){
+            throw new IllegalArgumentException("L'editore non può essere vuoto");
+        }
         this.publisher = publisher;
     }
 
     // METHODS
 
-    private void checkExceptionString(String str, String name) throws IllegalArgumentException{
-        if ( str.length() == 1){
-            throw new IllegalArgumentException("Il campo" + name + "deve contenere almeno 1 carattere");
-        }
+    private boolean checkExceptionString(String str){
+         return str == null || str.trim().isEmpty();
     }
-    private void checkExceptionInt(int n, String name) throws IllegalArgumentException{
-        if (n <= 0){
-            throw new IllegalArgumentException("Il campo" + name + "deve contenere almeno 1 numero");
-        }
-    }
+//    private void checkExceptionInt(int n, String name) throws IllegalArgumentException{
+//        if (n <= 0){
+//            throw new IllegalArgumentException("Il campo " + name + " deve contenere almeno 1 numero");
+//        }
+//    }
 
     @Override
     public String toString() {
